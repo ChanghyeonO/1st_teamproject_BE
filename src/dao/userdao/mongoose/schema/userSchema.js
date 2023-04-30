@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ROLETYPE = require("../../../../util/commonenum/roletype.js");
+const ROLETYPE = require("../../../../util/commonenum/ROLETYPE.js");
 
 const userSchema = new mongoose.Schema(
   {

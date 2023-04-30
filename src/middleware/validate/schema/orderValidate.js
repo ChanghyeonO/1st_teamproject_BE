@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const logger = require("../../../util/logger/pino.js");
+const logger = require("../../../util/logger/logger.js");
 const AppError = require("../../../misc/AppError.js");
 const commonErrors = require("../../../misc/commonErrors.js");
 

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const PRODUCT_CATEGORY = require("../../../../util/commonenum/product_category.js");
+const PRODUCT_CATEGORY = require("../../../../util/commonenum/PRODUCT_CATEGORY.js");
 
 // category는 Enum 으로 분류한다
 // price 는 음수가 들어갈 수 없게 validate 한다.

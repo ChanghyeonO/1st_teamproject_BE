@@ -1,5 +1,5 @@
 const { User } = require("./mongoose/model/index");
-const logger = require("../../util/logger/pino.js");
+const logger = require("../../util/logger/logger.js");
 const AppError = require("../../misc/AppError");
 const commonErrors = require("../../misc/commonErrors");
 

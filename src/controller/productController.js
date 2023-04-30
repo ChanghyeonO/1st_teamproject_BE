@@ -1,5 +1,5 @@
-const productService = require("../service/product_service.js");
-const buildResponse = require("../util/response/response_builder.js");
+const productService = require("../service/productService.js");
+const buildResponse = require("../util/response/buildResponse.js");
 
 const productController = {
   async getProducts(req, res, next) {

@@ -1,5 +1,5 @@
-const orderService = require("../service/order_service.js");
-const buildResponse = require("../util/response/response_builder.js");
+const orderService = require("../service/orderService.js");
+const buildResponse = require("../util/response/buildResponse.js");
 
 const orderController = {
   async postOrder(req, res, next) {

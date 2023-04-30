@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const authController = require("../../controller/auth_controller.js");
-const { signupSchema, validateSignup } = require('../../middleware/validate/schema/signup_validate.js');
-const { loginSchema, validateLogin } = require('../../middleware/validate/schema/login_validation.js');
+const authController = require("../controller/authController.js");
+const { signupSchema, validateSignup } = require('../middleware/validate/schema/signupValidate.js');
+const { loginSchema, validateLogin } = require('../middleware/validate/schema/loginValidate.js');
 
 // URL = /auth 
 

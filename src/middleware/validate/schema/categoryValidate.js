@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const pino = require('pino')();
-const { PRODUCT_CATEGORY } = require('../../../util/commonenum/product_category');
+const { PRODUCT_CATEGORY } = require('../../../util/commonenum/PRODUCT_CATEGORY');
 const AppError = require("../../../misc/AppError.js");
 const commonErrors = require("../../../misc/commonErrors.js");
 

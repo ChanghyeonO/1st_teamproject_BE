@@ -1,8 +1,8 @@
 const userDAO = require('../dao/userdao/userDAO.js');
-const { hashPassword, comparePassword } = require('../util/encrypt/hash_password.js');
+const { hashPassword, comparePassword } = require('../util/encrypt/hashPassword.js');
 const AppError = require('../misc/AppError.js');
 const commonErrors = require('../misc/commonErrors');
-const logger = require("../util/logger/pino.js");
+const logger = require("../util/logger/logger.js");
 
 const authService = {
   async createUser(userName, password, roleType, phoneNumber, mail, address) {

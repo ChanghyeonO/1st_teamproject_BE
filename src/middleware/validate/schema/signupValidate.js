@@ -1,7 +1,7 @@
 const Joi = require('joi');
 const AppError = require("../../../misc/AppError.js");
 const commonErrors = require("../../../misc/commonErrors.js");
-const { ROLETYPE } = require("../../../util/commonenum/roletype.js");
+const { ROLETYPE } = require("../../../util/commonenum/ROLETYPE.js");
 const pino = require('pino')();
 
 // userName은 3~15글자 제한, password는 12~30 제한

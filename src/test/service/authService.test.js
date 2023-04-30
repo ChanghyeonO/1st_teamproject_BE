@@ -1,10 +1,10 @@
-const authService = require("../../service/auth_service.js");
+const authService = require("../../service/authService.js");
 const userDAO = require("../../dao/userdao/userDAO.js");
 const AppError = require("../../misc/AppError.js");
-const { hashPassword, comparePassword } = require("../../util/encrypt/hash_password.js");
+const { hashPassword, comparePassword } = require("../../util/encrypt/hashPassword.js");
 
 jest.mock("../../dao/userdao/userDAO.js");
-jest.mock("../../util/encrypt/hash_password.js");
+jest.mock("../../util/encrypt/hashPassword.js");
 
 describe("createUser", () => {
   afterEach(() => {
@@ -12,8 +12,7 @@ describe("createUser", () => {
   });
 
   test("CASE 1, createUser success", async () => {
-
-    // ================ ACT ==============================
+    //given
     const userName = "john123";
     const password = "abc123456789";
     const roleType = "user";
@@ -34,7 +33,7 @@ describe("createUser", () => {
 
     hashPassword.mockResolvedValue(hashedPassword);
 
-    // ================ Assert ==============================
+    //when
     const result = await authService.createUser(
       userName,
       password,
@@ -44,6 +43,7 @@ describe("createUser", () => {
       address
     );
 
+    //then
     expect(userDAO.findByUserName).toHaveBeenCalledWith(userName);
     expect(hashPassword).toHaveBeenCalledWith(password);
     expect(userDAO.create).toHaveBeenCalledWith({
@@ -65,7 +65,7 @@ describe("createUser", () => {
   });
 
   test("CASE 2, Failed, User already exists", async () => {
-    // ================ ACT ==============================
+    //given
     const userName = "john123";
     const password = "abc123456789";
     const roleType = "user";
@@ -82,7 +82,7 @@ describe("createUser", () => {
       address,
     });
 
-    // ================ Assert ==============================
+    //when
     await expect(
       authService.createUser(
         userName,
@@ -92,7 +92,7 @@ describe("createUser", () => {
         mail,
         address
       )
-    ).rejects.toThrow(AppError);
+    ).rejects.toThrow(AppError); // then
   });
 });
 
@@ -102,7 +102,7 @@ describe("authenticateUser", () => {
     });
   
     test("CASE 1, authenticateUser success", async () => {
-        // ================ ACT ==============================
+        //given
         const userName = "john123";
         const password = "abc123456789";
         const roleType = "user";
@@ -132,8 +132,10 @@ describe("authenticateUser", () => {
           address,
         });
       
-        // ================ Assert ==============================
+        //when
         const result = await authService.authenticateUser(userName, password);
+
+        //then
         expect(userDAO.findByUserName).toHaveBeenCalledWith(userName);
         expect(comparePassword).toHaveBeenCalledWith(
           password,
@@ -143,7 +145,7 @@ describe("authenticateUser", () => {
     });
 
     test("CASE 2, Failed, comparePassword is not matched", async() => {
-        // ================ ACT ==============================
+        //given
         const userName = "john123";
         const password = "abc123456789";
         const roleType = "user";
@@ -162,10 +164,10 @@ describe("authenticateUser", () => {
         });
         comparePassword.mockRejectedValue(mockErrorData);
     
-        // ================ Assert ==============================
+        //when
         await expect(authService.authenticateUser(userName, password)).rejects.toThrow(
-            "Unauthorized"
+            "Unauthorized" //then
           );
-          expect(userDAO.findByUserName).toHaveBeenCalledWith(userName);
+        expect(userDAO.findByUserName).toHaveBeenCalledWith(userName); //then
     });
 });

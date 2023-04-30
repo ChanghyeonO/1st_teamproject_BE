@@ -1,6 +1,6 @@
 const Joi = require('joi');
-const logger = require("../../../util/logger/pino.js");
-const { PRODUCT_CATEGORY } = require('../../../util/commonenum/product_category');
+const logger = require("../../../util/logger/logger.js");
+const { PRODUCT_CATEGORY } = require('../../../util/commonenum/PRODUCT_CATEGORY');
 const AppError = require("../../../misc/AppError.js");
 const commonErrors = require("../../../misc/commonErrors.js");
 const { ObjectId } = require("mongodb");

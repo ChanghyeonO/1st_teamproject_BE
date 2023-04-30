@@ -1,9 +1,9 @@
 const passport = require("passport");
 const passportJWT = require("passport-jwt");
 const JWTStrategy = passportJWT.Strategy;
-const User = require("../../dao/userdao/mongoose/model/user_model");
+const User = require("../../dao/userdao/mongoose/model/userModel");
 const path = require('path');
-const logger = require("../../util/logger/pino.js");
+const logger = require("../../util/logger/logger.js");
 require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') })
 
 const cookieExtractor = function(req) {

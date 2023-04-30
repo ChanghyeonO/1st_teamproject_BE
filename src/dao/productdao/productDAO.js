@@ -1,5 +1,5 @@
-const { Product } = require("./mongoose/model/product_model");
-const logger = require("../../util/logger/pino.js");
+const { Product } = require("./mongoose/model/productModel");
+const logger = require("../../util/logger/logger.js");
 const AppError = require("../../misc/AppError");
 const commonErrors = require("../../misc/commonErrors");
 

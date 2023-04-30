@@ -1,7 +1,7 @@
-const authService = require("../service/auth_service.js");
-const { createAccessTokenWithLogin } = require('../middleware/jwt/jwt_utils.js');
-const buildResponse = require("../util/response/response_builder.js");
-const logger = require("../util/logger/pino.js");
+const authService = require("../service/authService.js");
+const { createAccessTokenWithLogin } = require('../middleware/jwt/jwtUtils.js');
+const buildResponse = require("../util/response/buildResponse.js");
+const logger = require("../util/logger/logger.js");
 
 const authController = {
     async postSignup(req, res, next) {
